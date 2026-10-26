@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the character encoding and makes the page responsive -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notes Clone</title>
+
+    <!-- Connects the HTML page to its CSS design -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header contains the logo, search bar, and new note button -->
+    <header>
+        <div class="logo">
+            📝 Notes
+        </div>
+
+        <!-- Allows users to search for notes -->
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search notes..."
+            >
+        </div>
+
+        <!-- Opens the form for creating a new note -->
+        <button class="new-btn" id="newNoteBtn">
+            + New Note
+        </button>
+    </header>
+
+    <div class="layout">
+
+        <!-- Sidebar navigation for organizing and filtering notes -->
+        <aside>
+            <div class="menu-title">
+                MENU
+            </div>
+
+            <button class="menu-btn active" data-section="all">
+                📝 <span>All Notes</span>
+            </button>
+
+            <button class="menu-btn" data-section="pinned">
+                📌 <span>Pinned</span>
+            </button>
+
+            <button class="menu-btn" data-section="favorites">
+                ⭐ <span>Favorites</span>
+            </button>
+
+            <button class="menu-btn" data-section="trash">
+                🗑️ <span>Trash</span>
+            </button>
+
+            <button class="menu-btn active" data-section="all">
+                📝 <span>Custom</span>
+            </button>
+
+        </aside>
+
+        <!-- Main area displays the selected section and its notes -->
+        <main>
+            <div class="top-row">
+                <div>
+                    <!-- JavaScript updates this heading when the section changes -->
+                    <h1 id="sectionTitle">
+                        All Notes
+                    </h1>
+
+                    <!-- Displays the number of notes -->
+                    <p id="noteCount">
+                        0 notes
+                    </p>
+                </div>
+            </div>
+
+            <!-- JavaScript dynamically displays note cards inside this container -->
+            <div id="notesContainer" class="notes-grid">
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal form used to create or edit a note -->
+    <div id="noteModal" class="modal">
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <!-- JavaScript changes this title when creating or editing a note -->
+                <h2 id="modalTitle">
+                    New Note
+                </h2>
+
+                <!-- Closes the note modal -->
+                <button id="closeBtn" class="close-btn">
+                    ×
+                </button>
+            </div>
+
+            <!-- Input fields for the note's title and content -->
+            <label>
+                Title
+            </label>
+            <input
+                type="text"
+                id="titleInput"
+                placeholder="Note title"
+            >
+
+            <label>
+                Note
+            </label>
+            <textarea
+                id="contentInput"
+                placeholder="Write your note here..."
+            ></textarea>
+
+            <!-- Options for pinning a note or adding it to favorites -->
+            <div class="options">
+                <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        id="pinnedInput"
+                    >
+                    📌 Pin this note
+                </label>
+
+                <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        id="favoriteInput"
+                    >
+                    ⭐ Add to favorites
+
+                     <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        id="customInput"
+                    >
+                     Add to custom
+                </label>
+            </div>
+
+            <!-- Buttons for deleting, canceling, or saving a note -->
+            <div class="modal-actions">
+                <button
+                    id="deleteBtn"
+                    class="delete-btn"
+                >
+                    Delete
+                </button>
+
+                <div>
+                    <button
+                        id="cancelBtn"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        id="saveBtn"
+                        class="save-btn"
+                    >
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connects the HTML interface to the JavaScript functionality -->
+    <script src="app.js"></script>
+
+</body>
+</html>
